@@ -8,13 +8,13 @@ Run the following git command, then add an alias to your settings:
 
 `git config --edit --global`
 
-```
+```bash
 [alias]
         recommit = "commit --amend --no-edit"
         wip = "commit -m 'chore: wip'"
 ```
 
-Then just copy the content below and add to `~/.bashrc` or `.profile`:
+Then just copy the content below and add to `~/.bashrc` or `~/.profile`:
 
 ```bash
 alias gs="git status"
