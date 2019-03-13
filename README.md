@@ -18,11 +18,18 @@ Then just copy the content below and add to `~/.bashrc` or `~/.profile`:
 
 ```bash
 alias gs="git status"
-alias gb="git checkout -b"
 alias grm="git fetch && git rebase origin/master"
 alias gbp="git push origin \$(git symbolic-ref --short HEAD) -u --no-verify"
 alias gfp="git add -A && git recommit && git push origin \$(git symbolic-ref --short HEAD) -u --no-verify -f"
 alias grc="git add -A && git rebase --continue"
+
+gb() {
+  if [ -z "$1" ]; then
+    git branch;
+  else
+    git checkout -b $1;
+  fi
+}
 
 gco() {
   BRANCHES=`git for-each-ref --format="%(refname:short)" refs/heads | grep $1`
