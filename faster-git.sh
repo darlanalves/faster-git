@@ -38,3 +38,11 @@ git_list_branches() {
     git for-each-ref refs/heads --format='%(refname)' | cut -d/ -f3-
 }
 
+ga() {
+  PATTERN=$1
+  CHANGES=$(git ls-files -m | grep $PATTERN -)
+  for file in $CHANGES; do
+    echo "+  $file";
+    git add $file
+  done
+}
