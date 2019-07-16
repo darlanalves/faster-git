@@ -23,6 +23,7 @@ alias gbp="git push origin \$(git symbolic-ref --short HEAD) -u --no-verify"
 alias gfp="git add -A && git recommit && git push origin \$(git symbolic-ref --short HEAD) -u --no-verify -f"
 alias grc="git add -A && git rebase --continue"
 
+# Show all branches or create a new one
 gb() {
   if [ -z "$1" ]; then
     git branch;
@@ -31,6 +32,7 @@ gb() {
   fi
 }
 
+# Checkout a branch by partially matching the name
 gco() {
   BRANCHES=`git for-each-ref --format="%(refname:short)" refs/heads | grep $1`
   BRANCHES_COUNT=`git for-each-ref --format="%(refname:short)" refs/heads | grep $1 | wc -l`
@@ -82,4 +84,4 @@ $ grc                      # mark conflict resolutions and continue rebasing
 
 ```
 
-All commands should be easy to follow if you're used to git
+All commands should be easy to follow if you're used to git.
