@@ -54,31 +54,31 @@ gco() {
 ```
 $ gs                        # show status
 
-On branch master
-Your branch is up to date with 'origin/master'.
+        On branch master
+        Your branch is up to date with 'origin/master'.
 
-nothing to commit, working tree clean
+        nothing to commit, working tree clean
 
 $ gb feat/new-feature       # create branch
-Switched to a new branch 'test'
+        Switched to a new branch 'feat/new-feature'
 
 $ gco master                # go back to master
 
-Switched to branch 'master'
-Your branch is up to date with 'origin/master'.
+        Switched to branch 'master'
+        Your branch is up to date with 'origin/master'.
 
 $ gco feat                 # checkout to a branch that matches 'feat'
-Switched to branch 'feat/new-feature'
+        Switched to branch 'feat/new-feature'
 
 $ gbp                      # push branch to remote
 
-# do some changes
+        # -- apply your changes --
 
 $ gfp                      # adds your changes, recommit and force push to remote
 
 $ grm                      # fetch latest master and rebase on top of it
 
-# if needed, resolve conflicts
+        # -- if needed, resolve conflicts --
 
 $ grc                      # mark conflict resolutions and continue rebasing
 
