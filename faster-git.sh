@@ -6,7 +6,7 @@ alias gs="git status"
 alias grm="git fetch && git rebase origin/master"
 alias gbp="git push origin \$(git symbolic-ref --short HEAD) -u --no-verify"
 alias gfp="git add -A && git recommit && git push origin \$(git symbolic-ref --short HEAD) -u --no-verify -f"
-alias grc="git add -A && git rebase --continue"
+alias grc="git add -A && GIT_EDITOR=true git rebase --continue"
 alias gtree="git log --graph --full-history --all --color  --pretty=format:\"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s\""
 
 git config --global alias.recommit 'commit --amend --no-edit'
