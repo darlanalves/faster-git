@@ -3,7 +3,6 @@ killport() {
 }
 
 alias gs="git status"
-alias grm="git fetch && git rebase origin/master"
 alias gbp="git push origin \$(git symbolic-ref --short HEAD) -u --no-verify"
 alias gfp="git add -A && git recommit && git push origin \$(git symbolic-ref --short HEAD) -u --no-verify -f"
 alias grc="git add -A && GIT_EDITOR=true git rebase --continue"
@@ -48,4 +47,15 @@ ga() {
     echo "+  $file";
     git add $file
   done
+}
+
+grm() {
+  masterBranch='master'
+  hasMaster=`git for-each-ref --format="%(refname:short)" refs/heads | grep master | wc -l`
+
+  if [ $hasMaster -eq 0 ]; then
+    masterBranch='main'
+  fi
+
+  git fetch && git rebase origin/$masterBranch
 }
